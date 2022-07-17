@@ -5,3 +5,6 @@ imu:
   linear_acceleration_variance: 40.0
   # Angular velocity variance, in DPS (deg/s)
   angular_velocity_variance: 10.0
+mag:
+  # Magnetic field variance in each axis, in mgauss (milli - gauss)
+  magnetic_field_variance: [3.2, 3.2, 4.1]

@@ -6,10 +6,12 @@ import serial
 import time
 
 from sensor_drivers.IMUDriver import IMUDriver
+from sensor_drivers.MagnetometerDriver import MagnetometerDriver
 
 class SensorDrivers:
 	def __init__(self):
 		self.IMU = IMUDriver()
+		self.magnetometer = MagnetometerDriver()
 
 		self.transmitData = False
 
@@ -45,9 +47,10 @@ class SensorDrivers:
 
 			msg = str(self.arduino.readline(), 'utf-8')
 
-			if re.search("^Config:[0-9]+,[0-9]+,[0-9]+\\r\\n$", msg) != None:
+			if re.search("^Config:[0-9]+,[0-9]+,[0-9]+,[0-9]+\\r\\n$", msg) != None:
 				cfg = [int(e) for e in msg[7:].split(',')]
 				self.IMU.config(cfg[0], cfg[1], cfg[2])
+				self.magnetometer.config(cfg[3])
 				return True
 			else:
 				rospy.logerr("Unrecognized message from sensors. Please reset sensors and try again.")
@@ -69,3 +72,6 @@ class SensorDrivers:
 
 				if len(splitMsg) >= 2:
 					self.IMU.publishData(timestamp, splitMsg[1])
+				
+				if len(splitMsg) >= 3:
+					self.magnetometer.publishData(timestamp, splitMsg[2])
