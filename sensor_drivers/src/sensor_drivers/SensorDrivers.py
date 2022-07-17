@@ -6,7 +6,6 @@ import serial
 import time
 
 from sensor_drivers.IMUDriver import IMUDriver
-from std_msgs.msg import String
 
 class SensorDrivers:
 	def __init__(self):

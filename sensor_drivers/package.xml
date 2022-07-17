@@ -2,7 +2,7 @@
 <package format="2">
   <name>sensor_drivers</name>
   <version>0.0.1</version>
-  <description>The sensor_drivers package</description>
+  <description>ROS drivers for a low-cost sensor suite connected to an Arduino UNO.</description>
 
   <author email="danieto98@gmail.com">Daniel Nieto</author>
   <maintainer email="danieto98@gmail.com">Daniel Nieto</maintainer>
@@ -10,8 +10,8 @@
   <license>TODO</license>
 
   <depend>rospy</depend>
+  <depend>sensor_msgs</depend>
   <buildtool_depend>catkin</buildtool_depend>
-
 
   <export>
   </export>
