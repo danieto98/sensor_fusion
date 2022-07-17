@@ -1,0 +1,14 @@
+#!/usr/bin/env python3
+
+import rospy
+from sensor_drivers.SensorDrivers import SensorDrivers
+
+if __name__ == '__main__':
+	rospy.init_node('sensor_drivers')
+	sensorDrivers = SensorDrivers()
+
+	rate = rospy.Rate(200) # TODO: don't use a fixed frequency here
+	while not rospy.is_shutdown():
+		sensorDrivers.streamResults()
+
+	rospy.spin()

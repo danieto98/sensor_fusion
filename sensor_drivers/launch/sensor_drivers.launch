@@ -1,0 +1,5 @@
+<launch>
+    <rosparam command="load" file="$(find sensor_drivers)/config/default.yaml" />
+
+    <node pkg="sensor_drivers" type="sensor_drivers_node" name="sensor_drivers" required="true"/>
+</launch>

@@ -1,0 +1,7 @@
+port: '/dev/ttyACM0'
+baud_rate: 230400
+imu:
+  # Linear acceleration variance, in mG (milli - G)
+  linear_acceleration_variance: 40.0
+  # Angular velocity variance, in DPS (deg/s)
+  angular_velocity_variance: 10.0
